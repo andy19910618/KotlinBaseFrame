@@ -8,15 +8,9 @@
         android:orientation="vertical"
         tools:context=".ui.activity.RegisterActivity">
 
-    <TextView
-            android:id="@+id/text"
-            android:text="Kotlin Mall"
-            android:textSize="20sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
 
     <LinearLayout
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -59,7 +53,9 @@
             android:hint="请确认密码"/>
 
 
-    <Button android:layout_width="match_parent"
+    <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="登录"/>
