@@ -26,7 +26,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView{
 //            startActivity<TestActivity>("id" to 10)
             mPresenter = RegisterPresenter()
             mPresenter.mView = this
-            mPresenter.register("139","","")
+            mPresenter.register("13900009999","123456","123456")
         }
     }
 

@@ -64,4 +64,11 @@ dependencies {
     // RxKotlin and RxAndroid
     implementation "io.reactivex:rxkotlin:$rxkotlin_version"
     implementation "io.reactivex:rxandroid:$rxandroid_version"
+
+    //retrofit2
+    implementation "com.squareup.okhttp3:okhttp:${ok_http_version}"
+    implementation "com.squareup.retrofit2:retrofit:${retrofit_version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${ok_http_version}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit_version}"
+    implementation "com.squareup.retrofit2:adapter-rxjava:${retrofit_version}"
 }
