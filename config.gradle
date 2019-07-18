@@ -1,0 +1,287 @@
+subprojects {
+
+    if (project.ignore.toBoolean()) {
+        return
+    }
+
+    dependencies {
+
+    }
+}
+
+project(':base') {
+    dependencies {
+
+
+        implementation rootProject.ext.supportAppCompat
+        implementation rootProject.ext.recyclerviewV7
+        implementation rootProject.ext.recyclerviewAnimators
+        implementation rootProject.ext.supportDesign
+        implementation rootProject.ext.constraintLayout
+
+        implementation rootProject.ext.kotlinStdlibJdk8
+
+        //工具
+        implementation rootProject.ext.ktx
+        implementation rootProject.ext.coroutines
+        implementation rootProject.ext.coroutinesandroid
+        implementation rootProject.ext.work
+        implementation rootProject.ext.anko
+        implementation rootProject.ext.autosize//适配
+        debugImplementation rootProject.ext.leakcanary//内存泄漏检测
+        releaseImplementation rootProject.ext.leakcanarynoop
+        debugImplementation rootProject.ext.leakcanarySupportFragment
+
+
+//        implementation rootProject.ext.permissionsDispatcher
+
+        //6.0权限处理
+        implementation(rootProject.ext.permissionsDispatcher) {
+            exclude module: "support-v13"
+        }
+        kapt rootProject.ext.permissionsDispatcherProcessor
+
+        // 单activity 多fragment架子 基础库
+        implementation rootProject.ext.fragmentation
+        implementation rootProject.ext.fragmentationswipeback
+
+
+        //rxjava
+        implementation rootProject.ext.rxAndroid2
+        //retrofit
+        implementation rootProject.ext.retrofit2
+        implementation rootProject.ext.retrofitAdapterGson
+        implementation rootProject.ext.loggingInterceptor
+        implementation rootProject.ext.retrofitAdapterRxJava2
+
+        // Dagger2  kotlin
+        implementation rootProject.ext.dagger2Android
+        implementation rootProject.ext.dagger2AndroidSupport
+        kapt rootProject.ext.dagger2Compiler
+        kapt rootProject.ext.dagger2AndroidCompiler
+        //Dagger2  java
+        implementation rootProject.ext.dagger2
+
+
+        // JetPack
+        implementation rootProject.ext.archExtensions
+        implementation rootProject.ext.archRuntime
+        kapt rootProject.ext.archCompiler
+
+
+        // AutoDispose
+        implementation rootProject.ext.autodisposeKotlin
+        implementation rootProject.ext.autodisposeAndroidKotlin
+        implementation rootProject.ext.autodisposeArchKotlin
+
+
+        // Glide
+        implementation(rootProject.ext.glide) {
+            exclude group: "com.android.support"
+        }
+        kapt rootProject.ext.glideCompiler
+        implementation rootProject.ext.glidetransformations
+        implementation rootProject.ext.luban
+
+        //友盟
+        implementation rootProject.ext.umsdkanalytics
+        implementation rootProject.ext.umsdkcommon
+        implementation rootProject.ext.umsdkutdid
+
+
+
+        // 日志上报
+//        implementation rootProject.ext.bugly
+        implementation rootProject.ext.crashreport_upgrade
+        implementation rootProject.ext.nativecrashreport
+        implementation rootProject.ext.tinker
+//        implementation rootProject.ext.bugtags
+
+        // ARouter
+        implementation rootProject.ext.arouter
+        kapt rootProject.ext.arouterCompiler
+        //轮播
+        implementation rootProject.ext.banner
+
+        //动画
+        implementation rootProject.ext.lottie
+
+        // 持久化
+        implementation rootProject.ext.hawk
+        //下啦刷新
+        implementation rootProject.ext.smartRefreshLayout
+        implementation rootProject.ext.smartRefreshHeader
+
+
+        //多视图展示
+//        implementation rootProject.ext.statefulView
+        implementation rootProject.ext.wheelPicker   //滚轮
+//        implementation rootProject.ext.vercodeedittext //短信验证码
+        implementation rootProject.ext.zxing //二维码生成 扫码
+        implementation rootProject.ext.autofittextview //自适应text
+//        implementation rootProject.ext.materialedittext //扁平化EditText
+        implementation rootProject.ext.coolindicator //web 进度条
+//        implementation  'com.zwh:RxFingerPrinter:1.2.1'
+        implementation rootProject.ext.flycoTabLayoutLib
+        implementation project(':router')
+
+    }
+}
+
+
+project(':router') {
+    dependencies {
+
+        implementation rootProject.ext.supportAppCompat
+        // 单activity 多fragment架子 基础库
+        implementation rootProject.ext.fragmentation
+        implementation rootProject.ext.fragmentationswipeback
+
+        implementation rootProject.ext.jpush  // 此处以JPush 3.3.2 版本为例。
+        implementation rootProject.ext.jcore  // 此处以JCore 2.0.1 版本为例。
+
+        // ARouter
+        implementation rootProject.ext.arouter
+        kapt rootProject.ext.arouterCompiler
+
+    }
+}
+
+
+project(':app') {
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+        implementation rootProject.ext.supportAppCompat
+        implementation rootProject.ext.supportDesign
+        implementation rootProject.ext.recyclerviewV7
+        implementation rootProject.ext.recyclerviewAnimators
+        implementation rootProject.ext.constraintLayout
+
+        implementation rootProject.ext.kotlinStdlibJdk8
+
+        //工具
+        implementation rootProject.ext.ktx
+        implementation rootProject.ext.coroutines
+        implementation rootProject.ext.coroutinesandroid
+        implementation rootProject.ext.work
+        implementation rootProject.ext.anko
+        implementation rootProject.ext.autosize//适配
+        debugImplementation rootProject.ext.leakcanary//内存泄漏检测
+        releaseImplementation rootProject.ext.leakcanarynoop
+        debugImplementation rootProject.ext.leakcanarySupportFragment
+
+//        compile 'com.arialyy.aria:aria-core:3.6.4'
+//        annotationProcessor 'com.arialyy.aria:aria-compiler:3.6.4'
+
+        // 单activity 多fragment架子 基础库
+        implementation rootProject.ext.fragmentation
+        implementation rootProject.ext.fragmentationswipeback
+
+
+        //6.0权限处理
+        implementation(rootProject.ext.permissionsDispatcher) {
+            exclude module: "support-v13"
+        }
+        kapt rootProject.ext.permissionsDispatcherProcessor
+
+        //rxjava
+        implementation rootProject.ext.rxAndroid2
+        //retrofit
+        implementation rootProject.ext.retrofit2
+        implementation rootProject.ext.retrofitAdapterGson
+        implementation rootProject.ext.loggingInterceptor
+        implementation rootProject.ext.retrofitAdapterRxJava2
+
+        // Dagger2  kotlin
+        implementation rootProject.ext.dagger2Android
+        implementation rootProject.ext.dagger2AndroidSupport
+        kapt rootProject.ext.dagger2Compiler
+        kapt rootProject.ext.dagger2AndroidCompiler
+        //Dagger2  java
+        implementation rootProject.ext.dagger2
+
+
+        // JetPack
+        implementation rootProject.ext.archExtensions
+        implementation rootProject.ext.archRuntime
+        kapt rootProject.ext.archCompiler
+
+
+        // AutoDispose
+        implementation rootProject.ext.autodisposeKotlin
+        implementation rootProject.ext.autodisposeAndroidKotlin
+        implementation rootProject.ext.autodisposeArchKotlin
+
+
+        // Glide
+        implementation(rootProject.ext.glide) {
+            exclude group: "com.android.support"
+        }
+        kapt rootProject.ext.glideCompiler
+        implementation rootProject.ext.glidetransformations
+        implementation rootProject.ext.luban
+
+
+        // 日志上报
+        implementation rootProject.ext.multidex
+        implementation rootProject.ext.crashreport_upgrade
+        implementation rootProject.ext.nativecrashreport
+        implementation rootProject.ext.tinker
+//        implementation rootProject.ext.bugtags
+
+        //极光
+        implementation rootProject.ext.jpush  // 此处以JPush 3.3.2 版本为例。
+        implementation rootProject.ext.jcore  // 此处以JCore 2.0.1 版本为例。
+        //友盟
+        implementation rootProject.ext.umsdkanalytics
+        implementation rootProject.ext.umsdkcommon
+        implementation rootProject.ext.umsdkutdid
+        // ARouter
+        implementation rootProject.ext.arouter
+        kapt rootProject.ext.arouterCompiler
+        //轮播
+        implementation rootProject.ext.banner
+
+        //动画
+        implementation rootProject.ext.lottie
+
+        // 持久化
+        implementation rootProject.ext.hawk
+
+        //下啦刷新
+        implementation rootProject.ext.smartRefreshLayout
+        implementation rootProject.ext.smartRefreshHeader
+        //多视图展示
+//        implementation rootProject.ext.statefulView
+        implementation rootProject.ext.wheelPicker   //滚轮
+//        implementation rootProject.ext.vercodeedittext //短信验证码
+        implementation rootProject.ext.zxing //二维码生成 扫码
+        implementation rootProject.ext.autofittextview //自适应text
+//        implementation rootProject.ext.materialedittext //扁平化EditText
+        implementation rootProject.ext.coolindicator //web 进度条
+//        implementation rootProject.ext.flowlayout //流式布局
+
+        implementation rootProject.ext.roundedimageview
+        implementation rootProject.ext.picture_library
+        implementation rootProject.ext.flycoTabLayoutLib
+        //在线客服
+        implementation rootProject.ext.zopimchat
+
+
+        implementation project(':router')
+        implementation project(':base')
+
+
+    }
+}
+
+subprojects {
+
+    configurations.all {
+        resolutionStrategy {
+            force rootProject.ext.rxAndroid2
+
+        }
+    }
+}

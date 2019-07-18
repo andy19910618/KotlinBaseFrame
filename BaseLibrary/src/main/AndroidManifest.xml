@@ -3,8 +3,7 @@
           package="com.kotlin.baselibrary">
 
     <application>
-        <activity android:name=".common.test">
-        </activity>
+        <activity android:name=".ui.activity.BaseMvpActivity"/>
     </application>
 
 </manifest>

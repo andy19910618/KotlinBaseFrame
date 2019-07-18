@@ -1,6 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.kotlin.usercenter">
+
     <application android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.TestActivity">
+        </activity>
         <activity android:name=".ui.activity.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -9,4 +13,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
