@@ -60,5 +60,8 @@ dependencies {
     // Coroutine listeners for Anko Layouts
     implementation "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
     implementation "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
-    compile project(path: ':BaseLibrary')
+    implementation project(path: ':BaseLibrary')
+    // RxKotlin and RxAndroid
+    implementation "io.reactivex:rxkotlin:$rxkotlin_version"
+    implementation "io.reactivex:rxandroid:$rxandroid_version"
 }
