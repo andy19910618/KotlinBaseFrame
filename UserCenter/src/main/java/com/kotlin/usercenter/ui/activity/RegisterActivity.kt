@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat.startActivity
 import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
+import com.kotlin.usercenter.injection.component.DaggerUserComponent
+import com.kotlin.usercenter.injection.module.UserModule
 import com.kotlin.usercenter.presenter.RegisterPresenter
 import com.kotlin.usercenter.presenter.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
@@ -24,10 +26,16 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView{
 //            toast("注册成功")
 //            startActivity(intentFor<TestActivity>("id" to 5))
 //            startActivity<TestActivity>("id" to 10)
-            mPresenter = RegisterPresenter()
-            mPresenter.mView = this
+//            mPresenter = RegisterPresenter()
+            initInjection()
+
             mPresenter.register("13900009999","123456","123456")
         }
+    }
+
+    private fun initInjection() {
+        DaggerUserComponent.builder().activityComponent(activityComponent).userModule(UserModule()).build().inject(this)
+        mPresenter.mView = this
     }
 
 

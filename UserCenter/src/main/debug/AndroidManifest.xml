@@ -9,7 +9,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application android:theme="@style/AppTheme"
-                 android:networkSecurityConfig="@xml/network_config">
+                 android:networkSecurityConfig="@xml/network_config"
+                android:name="com.kotlin.baselibrary.common.BaseApplication">
         <activity android:name=".ui.activity.TestActivity">
         </activity>
         <activity android:name=".ui.activity.RegisterActivity">

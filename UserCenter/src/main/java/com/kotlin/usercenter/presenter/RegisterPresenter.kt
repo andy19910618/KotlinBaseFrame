@@ -10,18 +10,22 @@ import rx.Scheduler
 import rx.Subscriber
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
+import javax.inject.Inject
 
 /**
  *@创建者 andy
  *@创建时间 2019/7/18 11:28
  *@描述 这是一个
  */
-class RegisterPresenter : BasePresenter<RegisterView>() {
+class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
+
+    @Inject
+    lateinit var userService: UserService
+
     fun register(mobile: String, verifCode: String, pwd: String) {
         /**
          * 业务逻辑
          */
-        val userService = UserServiceImpl()
         userService.register(mobile, verifCode, pwd)
             .execute(object : BaseSubsciber<Boolean>(){
                 override fun onNext(t: Boolean) {
