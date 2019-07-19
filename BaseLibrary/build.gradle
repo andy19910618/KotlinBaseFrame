@@ -35,6 +35,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
     // Appcompat-v7 (only Anko Commons)
     api "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
     // Support-v4 (only Anko Commons)
@@ -61,4 +62,8 @@ dependencies {
     //Dagger2
     api "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //RxLifecycle
+    api "com.trello:rxlifecycle-kotlin:$rx_lifecycle_version"
+    api "com.trello:rxlifecycle-components:$rx_lifecycle_version"
 }

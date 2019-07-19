@@ -1,6 +1,8 @@
 package com.kotlin.baselibrary.ext
 
 import com.kotlin.baselibrary.rx.BaseSubsciber
+import com.trello.rxlifecycle.LifecycleProvider
+import com.trello.rxlifecycle.kotlin.bindToLifecycle
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -12,8 +14,10 @@ import java.util.*
  *@描述 这是一个
  */
 
-fun <T> Observable<T>.execute(subsciber: BaseSubsciber<T>) {
+fun <T> Observable<T>.execute(subsciber: BaseSubsciber<T>,
+                              activity: LifecycleProvider<*>) {
     this.observeOn(AndroidSchedulers.mainThread())
+        .compose(activity.bindToLifecycle())
         .subscribeOn(Schedulers.io())
         .subscribe(subsciber)
 }
